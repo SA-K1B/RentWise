@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Booking Dashboard</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        color: #333;
+      }
+
+      h1 {
+        color: #0e836d;
+        font-size: 30px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 400px;
+        box-sizing: border-box;
+      }
+
+      li:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="{% url 'customer_home' %}">Back</a>
+    <h1>Your Booking Dashboard</h1>
+    <ul>
+      {% for booking in bookings %}
+      <li>
+        <strong>Car:</strong> {{ booking.car.model }}<br />
+        <strong>Date:</strong> {{ booking.booking_date }}<br />
+        <strong>Status:</strong> {{ booking.status }}
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

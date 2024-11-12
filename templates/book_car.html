@@ -1,0 +1,26 @@
+<!-- cars/templates/book_car.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Vehicle</title>
+    <style>
+      /* Your existing styles here */
+    </style>
+  </head>
+  <body>
+    <h1>Book Vehicle</h1>
+    <p>Car: {{ car.model }}</p>
+
+    <form method="post">
+      {% csrf_token %} {% for field in form %} {{ field }} {% endfor %}
+
+      <input type="submit" value="Book Now" />
+    </form>
+
+    {% if msg %}
+    <p class="msg">{{ msg }}</p>
+    {% endif %}
+  </body>
+</html>

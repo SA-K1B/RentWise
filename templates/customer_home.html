@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Cars</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background: url("media/Backgrounds/b2.jpg") center/cover no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: #333;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      h1 {
+        color: #0e836d;
+        font-size: 40px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      h2 {
+        color: #333;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      li {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: calc(33.333% - 20px);
+        box-sizing: border-box;
+      }
+      strong {
+        color: #e74c3c;
+      }
+      p {
+        margin: 5px 0;
+      }
+      p.Status {
+        font-weight: bold;
+        color: #28a745;
+      }
+      p.Status.Unavailable {
+        color: #dc3545;
+      }
+      img {
+        max-width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+      a.button {
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      a.button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="{% url 'customer_dashboard'%}">Your Bookings</a>
+    <a href="{% url 'home' %}">Home</a>
+    <h1>Hey {{ user.username }}</h1>
+    <h2>Search for Cars</h2>
+    <form method="GET" action="{% url 'customer_home' %}">
+        <label for="model_search">Search by Model:</label>
+        <input type="text" id="model_search" name="model_search" />
+        <button type="submit">Search</button>
+    </form>
+    <h2>These are the available vehicles for you</h2>
+    {% if cars %}
+    <ul>
+      {% for car in cars %}
+      <li>
+        <strong>{{ car.model }}</strong>
+        <p>Dealer : {{car.car_dealer}}</p>
+        <p>Capacity: {{ car.capacity }}</p>
+        <p>Rent: {{ car.rent }}</p>
+        {% if car.image %}
+        <img src="{{ car.image.url }}" alt="{{ car.model }} Photo" />
+        {% endif %}
+        <a href="{% url 'book_car' car.id %}" class="button">Book Now</a>
+        <!-- Add more details or actions as needed -->
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No cars available at the moment.</p>
+    {% endif %}
+  </body>
+</html>

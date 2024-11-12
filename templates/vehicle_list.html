@@ -1,0 +1,132 @@
+{% extends 'dealer_base.html' %} {% block content %}
+<style>
+  /* Add this style in your CSS file or in a <style> tag within the HTML file */
+  body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav {
+    background-color: #fe5b3d;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  nav a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .header {
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .header-text {
+    background-color: #034039;
+    color: #ada50d;
+    display: inline;
+    padding: 20px 30px;
+    border-radius: 5px;
+  }
+
+  .car-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Reduce the gap between cards */
+    justify-content: space-around;
+  }
+
+  .car-card {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    width: calc(
+      25% - 20px
+    ); /* Ensure a maximum of 4 vehicles in a row with a 20px gap */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #034039;
+    color: #ffffff;
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+  }
+
+  .car-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .car-card strong {
+    color: #ada50d;
+  }
+
+  .car-description {
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .edit-button {
+    background-color: #fe5b3d;
+    color: black;
+    border: none;
+    padding: 3px 6px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .edit-button:hover {
+    background-color: #303f12;
+  }
+
+  .car-card:hover {
+    transform: scale(1.05);
+    background-color: #0f3d22;
+  }
+</style>
+
+<div class="header">
+  <h2 class="center">
+    <span class="header-text">YOUR VEHICLES</span>
+  </h2>
+</div>
+
+{% if cars %}
+<div class="car-container">
+  {% for car in cars %}
+  <div class="car-card">
+    <img src="{{ car.image.url }}" alt="{{ car.model }} Photo" />
+    <strong>Model:</strong> {{ car.model }}<br />
+    <strong>Capacity:</strong> {{ car.capacity }}<br />
+    <strong>Available:</strong> {{ car.is_available }}<br />
+    <strong>Rent:</strong> {{ car.rent }}<br />
+    <p class="car-description">{{ car.description }}</p>
+
+    <!-- Add an Edit button -->
+    <a href="{% url 'edit' car.id %}" class="edit-button">Edit</a>
+
+    <!-- Add more details or buttons as needed -->
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p>No vehicles added yet.</p>
+{% endif %} {% endblock %}

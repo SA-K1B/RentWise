@@ -1,0 +1,15 @@
+<!-- bookings/templates/booking_confirmation.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Add your head content here -->
+  </head>
+  <body>
+    <h1>Booking Confirmation</h1>
+    <p>Thank you for booking!</p>
+    <p>Booking details:</p>
+    <p>Car: {{ booking.car.model }}</p>
+    <p>Customer: {{ booking.customer.username }}</p>
+    <p>Date: {{ booking.booking_date }}</p>
+  </body>
+</html>

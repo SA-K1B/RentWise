@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>RENTWISE</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #eeeff1;
+        margin-top: 60px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        /* margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh; */
+      }
+
+      /* form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 400px;
+        width: 100%;
+      } */
+      .login-info {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px 0px 0px 10px;
+        background-color: #fe5b3d;
+        color: white;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        max-width: 400px;
+        width: 100%;
+      }
+      .login-details {
+        background-color: white;
+        padding: 20px;
+        border-radius: 0px 10px 10px 0px;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        max-width: 400px;
+        width: 100%;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-size: 20px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+      }
+
+      h4{
+        color: #E8E8E8;
+        font-weight: 500;
+        justify-content: center;
+      }
+
+      input[type="submit"] {
+        background-color: #fe5b3d;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        padding: 12px;
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: black;
+        color: #fe5b3d;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-info">
+      <h1>Customer Login</h1>
+      <h4>
+        Experience the ease of accessing our car rental services by logging in
+        as a customer. Once logged in, customers can effortlessly browse a
+        diverse range of vehicles, manage reservations, and explore exclusive
+        promotions. Enjoy a journey of convenience and choice as you embark on
+        your next adventure with our car rental services.
+      </h4>
+    </div>
+    <div class="login-details">
+      <form method="POST" action="">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" required />
+        <label for="password">Password:</label>
+        <input type="password" name="password" required />
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+  </body>
+</html>

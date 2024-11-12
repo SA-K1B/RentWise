@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>RENTWISE</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        width: 100%;
+        background: #eeeff1;
+        margin: 0;
+        padding: 0;
+        /* box-sizing: border-box; */
+        /* scroll-padding-top: 2rem;
+        scroll-behavior: smooth; */
+        text-decoration: none;
+      }
+      :root {
+        --main-color: #fe5b3d;
+        --second-color: #ffac38;
+        --text-color: #444;
+        --gradient: linear-gradient(#fe5b3d, #ffac38);
+      }
+      h1 {
+        font-size: 60px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 50px;
+        padding: 15px 100px;
+      }
+      .name {
+        color: #fe5b3d;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+      }
+      h4{
+        color: #444;
+        font-weight: 500;
+        justify-content: center;
+      }
+      a {
+        text-decoration: none;
+        background-color: #fe5b3d;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: transform 0.3s ease-in-out;
+      }
+      a:hover{
+        background-color: white;
+        color: #fe5b3d;
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <header classname="header-section">
+      <section>
+        <h1>WELCOME TO RENT<span class="name">WISE</span></h1>
+        <h4>
+          RentWise is aiming to provide a user-friendly and efficient online
+          platform for car rental bookings. Recognizing the evolving needs of
+          individuals who seek convenient alternatives to owning a vehicle,
+          RentWise aims to provide a cost-effective and flexible solution.
+        </h4>
+        <nav>
+          <a href="{% url 'register' %}">Register</a>
+          <a href="{% url 'customer_login'%}">Login as a customer</a>
+          <a href="{% url 'dealer_login'%}">Login as a dealer</a>
+        </nav>
+      </section>
+      <section>
+        <img src="media/jeep-logo.png" />
+      </section>
+    </header>
+  </body>
+</html>

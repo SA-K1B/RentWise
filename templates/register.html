@@ -1,0 +1,151 @@
+<!-- registration_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>RENTWISE</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #eeeff1;
+        margin-top: 40px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        /* background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh; */
+      }
+
+      .reg-info {
+        width: 400px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 20px 0px 0px 20px;
+      }
+      .reg-details {
+        width: 400px;
+        padding: 20px;
+        background-color: #fe5b3d;
+        color: white;
+        border-radius: 0px 20px 20px 0px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      input,
+      select {
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #fe5b3d;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        padding: 12px;
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: black;
+        color: #fe5b3d;
+        cursor: pointer;
+        /* transform: scale(1.2); */
+      }
+
+      p {
+        color: #444;
+        font-weight: 500;
+      }
+
+      h4{
+        color: #E8E8E8;
+        font-weight: 500;
+        justify-content: center;
+      }
+
+      a {
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+
+      a:hover {
+        background-color: white;
+        color: #fe5b3d;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reg-info">
+      <form method="POST" action="">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" required />
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required />
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" required />
+
+        <label for="user_type">User Type:</label>
+        <select name="user_type" required>
+          <option value="customer">Customer</option>
+          <option value="dealer">Dealer</option>
+        </select>
+
+        <br />
+        <input type="submit" value="Register" />
+      </form>
+
+      <!-- Additional content or links -->
+    </div>
+    <div class="reg-details">
+      <h1>Register Information</h1>
+      <h4>
+        Welcome to our comprehensive car rental system website, where users have
+        the flexibility to register either as valued customers or trusted
+        dealers. Our platform is designed to provide a seamless and tailored
+        experience, catering to the unique needs of individuals and businesses
+        in the car rental industry.
+      </h4>
+      <div>
+        <p>Already Have an Account?</p>
+        <a href="{% url 'customer_login'%}">Login as a customer</a>
+        <a href="{% url 'dealer_login'%}">Login as a dealer</a>
+      </div>
+    </div>
+  </body>
+</html>

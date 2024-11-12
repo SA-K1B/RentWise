@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>RENTWISE</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #eeeff1;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav {
+        background-color: #fe5b3d;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+      }
+      .img {
+        margin-left: 80px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .icon {
+        margin-right: 80px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      nav a {
+        display: inline-block;
+        color: white;
+        font-weight: 500;
+        font-size: 17px;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: transform 0.3s ease-in-out;
+      }
+      nav a:hover {
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="img">
+        <img
+          style="width: 100px; height: 60px"
+          src="media/jeep-logo.png"
+          alt=""
+        />
+      </div>
+      <div class="icon">
+        <a href="{% url 'home' %}">HOME</a>
+        <a href="{% url 'add_car' %}">ADD VEHICLE</a>
+        <a href="{% url 'vehicle_list' %}">YOUR VEHICLES</a>
+        <a href="{% url 'all_orders' %}">ALL ORDERS</a>
+      </div>
+    </nav>
+    {% block content %} {% endblock content %}
+    <!-- Your page content goes here -->
+  </body>
+</html>
